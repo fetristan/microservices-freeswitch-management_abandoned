@@ -1,0 +1,3 @@
+- Microservices to use Freeswitch via Golang (Abandonned project), uploaded for portfolio only.
+- The code was in debug (work in progress) mode, unrefined and not ready for production.
+- The code was hastily edited to remove sensitive information.

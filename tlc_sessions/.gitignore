@@ -1,0 +1,8 @@
+.github
+.vscode
+.idea
+config.yml
+main.exe
+*.log
+tlc_sessions
+__debug_bin.exe

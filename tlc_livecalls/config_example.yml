@@ -1,0 +1,13 @@
+livecalls:
+  cycle : 1
+  pole: "FR"
+  url_api: "https://test.fr/live_calls?POLE_CODE="
+  url_api_unmasked: "https://test.fr/unmasked_live_calls?POLE_CODE="
+grcp_sessions:
+  host: "localhost"
+  port: "9000"
+  timeout: 5
+grcp_dispatcher:
+  host: "localhost"
+  port: "9000"
+  timeout: 5

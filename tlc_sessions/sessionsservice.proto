@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+option go_package = "./sessionsservice";
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.sessionsservice";
+option java_outer_classname = "SessionsServiceProto";
+
+import "google/protobuf/timestamp.proto";
+
+package sessionsservice;
+
+import "google/protobuf/wrappers.proto";
+
+service SessionsService {
+  rpc GetSessionCopyService(CallerCalleeUid) returns (SessionCopy) {}
+  rpc GetSessionsCopyService(nil) returns (SessionsCopy) {}
+  rpc SetVar(Var) returns (google.protobuf.BoolValue) {}
+  rpc SetVarMultiple(VarMultiple) returns (google.protobuf.BoolValue) {}
+}
+
+message nil {
+}
+
+message SessionsCopy {
+  repeated SessionCopy sessionCopy = 1;
+}
+
+message CallerCalleeUid {
+  string callerUid = 1;
+  string calleeUid = 2;
+  bool exactly = 3;
+  bool onlyOneUid = 4;
+}
+
+message Var {
+  string callerUid = 1;
+  string calleeUid = 2;
+  string neededKey = 3;
+  string neededValue = 4;
+}
+
+message VarMultiple {
+  string callerUid = 1;
+  string calleeUid = 2; 
+  map<string, string> neededKeyValue = 3;
+}
+
+message SessionCopy {
+  string callerUid = 1;
+  string calleeUid = 2;
+  google.protobuf.Timestamp dateStart = 3;
+  string originalCallerNum = 7;
+  string originalCalleeNum = 8;
+  string callerNum = 9;
+  string calleeNum = 10;
+  string callerType = 11;
+  string calleeType = 12;
+  string callDirection = 15;
+  string callType = 16;
+  string callEvent = 19;
+  string fsDirection = 20;
+  string hangupSide = 21;
+  string hangupReason = 22;
+  google.protobuf.Timestamp dateRing = 23;
+  google.protobuf.Timestamp dateCon = 24;
+  google.protobuf.Timestamp dateEnd = 25;
+  string recordingName = 60;
+  string OriginationCallerIdName = 61;
+  string OriginationCalleeIdName = 62;
+  string EffectiveCallerIdName = 63;
+  string EffectiveCalleeIdName = 64;
+  string OtherLegCalleeIdName = 65;
+}
